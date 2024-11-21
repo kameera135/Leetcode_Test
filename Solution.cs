@@ -10,17 +10,20 @@ namespace Leetcode
     {
         public int[] TwoSums(int[] nums, int target)
         {
-            int[] result = new int[nums.Length];
+            //int[] result = new int[nums.Length];
 
-            for(int i = 0; i < nums.Length-1; i++)
+            for(int i = 0; i < nums.Length; i++)
             {
-                if (nums[i] + nums[i + 1] == target)
+                for(int j=i+1; j < nums.Length-1; j++)
                 {
-                    Console.WriteLine(nums.Length);
+                    if (nums[i] + nums[j] == target)
+                    {
+                        return new int[] { i,j };
+                    }
                 }
             }
 
-            return result;
+            return new int[] { };
         }
     }
 }
