@@ -8,22 +8,40 @@ namespace Leetcode
 {
     internal class Solution
     {
-        public int[] TwoSums(int[] nums, int target)
-        {
-            //int[] result = new int[nums.Length];
+         public int[] TwoSums(int[] nums, int target)
+         {
+             //int[] result = new int[nums.Length];
 
-            for(int i = 0; i < nums.Length; i++)
+             for(int i = 0; i < nums.Length; i++)
+             {
+                 for(int j=i+1; j < nums.Length-1; j++)
+                 {
+                     if (nums[i] + nums[j] == target)
+                     {
+                         return new int[] { i,j };
+                     }
+                 }
+             }
+
+             return new int[] { };
+         }
+
+        public static IList<IList<string>> GroupAnagrams(string[] strs)
+        {
+            //Create dictionary
+            Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
+
+            foreach (string str in strs)
             {
-                for(int j=i+1; j < nums.Length-1; j++)
+                string key = String.Concat(str.OrderBy(c => c));
+
+                if (dict.ContainsKey(key))
                 {
-                    if (nums[i] + nums[j] == target)
-                    {
-                        return new int[] { i,j };
-                    }
+                    dict[key].Add(str);
                 }
             }
 
-            return new int[] { };
+            return dict;
         }
     }
 }
