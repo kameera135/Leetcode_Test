@@ -8,7 +8,7 @@ class Program
 
         Solution solution = new Solution();
 
-        var result = solution.maxProfit([7, 6, 4, 3, 1]);
+        var result = solution.ContainsDuplicate([1, 2, 3, 1]);
 
         Console.WriteLine(result);
 

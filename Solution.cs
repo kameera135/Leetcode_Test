@@ -8,25 +8,20 @@ namespace Leetcode
 {
     public class Solution
     {
-         public int maxProfit(int[] prices)
-         {
-            int maxProfit = 0;
-            int minPrice = int.MaxValue;
+        public bool ContainsDuplicate(int[] nums)
+        {
+            List<int> list = new List<int>();
 
-            foreach (var price in prices)
+            foreach (var item in nums)
             {
-                if (price < minPrice)
+                if(list.Contains(item))
                 {
-                    minPrice = price;
+                    return true;
                 }
-
-                else if(price - minPrice > maxProfit)
-                {
-                    maxProfit = price - minPrice;
-                }
+                list.Add(item);
             }
+            return false;
 
-            return maxProfit;
-         }
+        }
     }
 }
