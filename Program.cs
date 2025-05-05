@@ -8,7 +8,7 @@ class Program
 
         Solution solution = new Solution();
 
-        int[] result = solution.TwoSums([2,7,11,15], 9);
+        var result = solution.maxProfit([7, 6, 4, 3, 1]);
 
         Console.WriteLine(result);
 

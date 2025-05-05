@@ -6,42 +6,27 @@ using System.Threading.Tasks;
 
 namespace Leetcode
 {
-    internal class Solution
+    public class Solution
     {
-         public int[] TwoSums(int[] nums, int target)
+         public int maxProfit(int[] prices)
          {
-             //int[] result = new int[nums.Length];
+            int maxProfit = 0;
+            int minPrice = int.MaxValue;
 
-             for(int i = 0; i < nums.Length; i++)
-             {
-                 for(int j=i+1; j < nums.Length-1; j++)
-                 {
-                     if (nums[i] + nums[j] == target)
-                     {
-                         return new int[] { i,j };
-                     }
-                 }
-             }
-
-             return new int[] { };
-         }
-
-        public static IList<IList<string>> GroupAnagrams(string[] strs)
-        {
-            //Create dictionary
-            Dictionary<string, List<string>> dict = new Dictionary<string, List<string>>();
-
-            foreach (string str in strs)
+            foreach (var price in prices)
             {
-                string key = String.Concat(str.OrderBy(c => c));
-
-                if (dict.ContainsKey(key))
+                if (price < minPrice)
                 {
-                    dict[key].Add(str);
+                    minPrice = price;
+                }
+
+                else if(price - minPrice > maxProfit)
+                {
+                    maxProfit = price - minPrice;
                 }
             }
 
-            return dict;
-        }
+            return maxProfit;
+         }
     }
 }
