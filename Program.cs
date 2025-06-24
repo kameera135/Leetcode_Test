@@ -8,9 +8,9 @@ class Program
 
         Solution solution = new Solution();
 
-        int[] result = solution.TwoSum([2, 7, 11, 15], 9);
+        bool result = solution.ContainsDuplicate([1,2,3,4]);
 
-        Console.WriteLine(string.Join(", ", result));
+        Console.WriteLine(result);
 
     }
 }

@@ -8,26 +8,19 @@ namespace Leetcode
 {
     public class Solution
     {
-        public int[] TwoSum(int[] nums, int target)
+        public bool ContainsDuplicate(int[] nums)
         {
-            Dictionary<int, int> keyValues = new Dictionary<int, int>();
+            List<int> values = new List<int>();
 
-            for(int i=0; i<nums.Length; i++)
+            foreach (var item in nums)
             {
-                int complement = target - nums[i];
-
-                if (keyValues.ContainsKey(complement))
+                if (values.Contains(item))
                 {
-                    return new int[] {keyValues[complement],i};
+                    return true;
                 }
-
-                if (!keyValues.ContainsKey(nums[i]))
-                {
-                    keyValues[nums[i]] = i;
-                }
+                values.Add(item);
             }
-
-            return new int[] { };
+            return false;
 
         }
     }
