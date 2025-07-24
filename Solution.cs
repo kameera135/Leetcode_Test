@@ -8,20 +8,21 @@ namespace Leetcode
 {
     public class Solution
     {
-        public bool ContainsDuplicate(int[] nums)
+        public bool IsAnagram(string s, string t)
         {
-            List<int> values = new List<int>();
+            char[] chars = s.ToCharArray();
+            char[] chars2 = t.ToCharArray();
 
-            foreach (var item in nums)
+            if(chars.Length != chars2.Length)
             {
-                if (values.Contains(item))
-                {
-                    return true;
-                }
-                values.Add(item);
+                return false;
             }
-            return false;
 
+            Array.Sort(chars);
+            Array.Sort(chars2);
+
+            return chars.SequenceEqual(chars2);
+                
         }
     }
 }

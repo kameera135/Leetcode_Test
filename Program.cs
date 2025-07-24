@@ -8,7 +8,7 @@ class Program
 
         Solution solution = new Solution();
 
-        bool result = solution.ContainsDuplicate([1,2,3,4]);
+        bool result = solution.IsAnagram("aacc", "ccac");
 
         Console.WriteLine(result);
 
