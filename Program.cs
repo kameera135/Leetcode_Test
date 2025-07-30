@@ -8,7 +8,7 @@ class Program
 
         Solution solution = new Solution();
 
-        bool result = solution.IsAnagram("aacc", "ccac");
+        IList<IList<string>> result = solution.GroupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
 
         Console.WriteLine(result);
 

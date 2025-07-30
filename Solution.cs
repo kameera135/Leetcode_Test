@@ -8,21 +8,27 @@ namespace Leetcode
 {
     public class Solution
     {
-        public bool IsAnagram(string s, string t)
+        public IList<IList<string>> GroupAnagrams(string[] strs)
         {
-            char[] chars = s.ToCharArray();
-            char[] chars2 = t.ToCharArray();
+            var result = new Dictionary<string, List<string>>();
 
-            if(chars.Length != chars2.Length)
+            foreach (var value in strs)
             {
-                return false;
+                char[] charValue = value.ToCharArray();
+                Array.Sort(charValue);
+
+                string sortedString = new string(charValue);
+
+                if(!result.ContainsKey(sortedString))
+                {
+                    result[sortedString] = new List<string>();
+                }
+
+                result[sortedString].Add(value);
             }
 
-            Array.Sort(chars);
-            Array.Sort(chars2);
 
-            return chars.SequenceEqual(chars2);
-                
+            return result.Values.ToList<IList<string>>();
         }
     }
 }
